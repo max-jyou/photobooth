@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>fotoboof</title>
+    <link rel="icon" type="image/x-icon" href="/assets/icon.png" />
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+      #red-button-hover {
+        opacity: 0;
+      }
+      a:hover #red-button-hover {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      viewBox="0 0 1920 1080"
+      preserveAspectRatio="xMidYMid slice"
+    >
+      <g id="background">
+        <image
+          width="1920"
+          height="1080"
+          xlink:href="assets/main-menu-bg.png"
+        />
+      </g>
+      <a href="photobooth.html">
+        <g transform="translate(940 580) scale(0.29)">
+          <image
+            id="sparkle1"
+            width="650"
+            height="800"
+            xlink:href="assets/sparkles-1.png"
+            style="opacity: 0"
+          />
+          <image
+            id="sparkle2"
+            width="650"
+            height="800"
+            xlink:href="assets/sparkles-2.png"
+            style="opacity: 0"
+          />
+          <image
+            id="sparkle3"
+            width="650"
+            height="800"
+            xlink:href="assets/sparkles-3.png"
+            style="opacity: 0"
+          />
+          <image
+            id="sparkle4"
+            width="650"
+            height="800"
+            xlink:href="assets/sparkles-4.png"
+            style="opacity: 0"
+          />
+        </g>
+        <g transform="translate(968.58 614.81) scale(0.29)">
+          <image
+            width="435"
+            height="550"
+            xlink:href="assets/red-button-lit.png"
+            id="red-button-hover"
+          />
+        </g>
+      </a>
+    </svg>
+    <script>
+      const sparkles = [
+        document.getElementById("sparkle1"),
+        document.getElementById("sparkle2"),
+        document.getElementById("sparkle3"),
+        document.getElementById("sparkle4"),
+      ];
+      let current = 0;
+      sparkles[current].style.opacity = 1; // Show first sparkle initially
+      setInterval(() => {
+        sparkles[current].style.opacity = 0; // Hide current sparkle
+        current = (current + 1) % 4; // Move to next sparkle (0-3)
+        sparkles[current].style.opacity = 1; // Show next sparkle
+      }, 500); // 0.5-second interval
+    </script>
+  </body>
+</html>
